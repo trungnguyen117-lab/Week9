@@ -1,0 +1,27 @@
+{
+  "name": "alertmanager-webhook",
+  "version": "1.0.0",
+  "description": "Webhook server for Prometheus Alertmanager",
+  "main": "alertwebhook.js",
+  "scripts": {
+    "start": "node alertwebhook.js",
+    "dev": "nodemon alertwebhook.js"
+  },
+  "keywords": [
+    "prometheus",
+    "alertmanager",
+    "webhook",
+    "monitoring"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

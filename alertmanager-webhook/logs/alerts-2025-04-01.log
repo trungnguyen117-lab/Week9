@@ -1,0 +1,3969 @@
+[2025-04-01T08:07:28.178Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 85.19% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:07:28.836Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "critical"
+  },
+  "commonAnnotations": {
+    "summary": "Target disappeared from Prometheus target discovery."
+  },
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:07:29.764Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-controller-manager",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-controller-manager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-controller-manager/kube-prometheus-stack-kube-controller-manager targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:14.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "a8c30b4a824df37a"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-etcd",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-etcd",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-etcd/kube-prometheus-stack-kube-etcd targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:14.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "3bcc820783e8b30a"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "etcdMembersDown",
+        "job": "kube-etcd",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-etcd",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "etcd cluster \"kube-etcd\": members are down (1).",
+        "summary": "etcd cluster members are down."
+      },
+      "startsAt": "2025-04-01T07:19:07.793Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=max+without+%28endpoint%29+%28sum+without+%28instance%2C+pod%29+%28up%7Bjob%3D~%22.%2Aetcd.%2A%22%7D+%3D%3D+bool+0%29+or+count+without+%28To%29+%28sum+without+%28instance%2C+pod%29+%28rate%28etcd_network_peer_sent_failures_total%7Bjob%3D~%22.%2Aetcd.%2A%22%7D%5B2m%5D%29%29+%3E+0.01%29%29+%3E+0&g0.tab=1",
+      "fingerprint": "20fc596ff730fe20"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "etcdInsufficientMembers",
+        "endpoint": "http-metrics",
+        "job": "kube-etcd",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-etcd",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "etcd cluster \"kube-etcd\": insufficient members (0).",
+        "summary": "etcd cluster has insufficient number of members."
+      },
+      "startsAt": "2025-04-01T07:02:07.793Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=sum+without+%28instance%2C+pod%29+%28up%7Bjob%3D~%22.%2Aetcd.%2A%22%7D+%3D%3D+bool+1%29+%3C+%28%28count+without+%28instance%2C+pod%29+%28up%7Bjob%3D~%22.%2Aetcd.%2A%22%7D%29+%2B+1%29+%2F+2%29&g0.tab=1",
+      "fingerprint": "6204338b907b8585"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-proxy",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-proxy",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-proxy/kube-prometheus-stack-kube-proxy targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:44.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "2fc449b7effab858"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-scheduler",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-scheduler",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-scheduler/kube-prometheus-stack-kube-scheduler targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:44.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "1f70a17e847b9462"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-system"
+  },
+  "commonLabels": {
+    "namespace": "kube-system",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-system\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:08:30.135Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "test-alert",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:08:24.314794049Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "05c8b845bbd3fe7b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:10:10.182Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:11:10.192Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 90% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:11:10.196Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "22024553 Nguyen Trung Nguyen",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:11:03.201257512Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "a52b7256990a00f3"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "test-alert",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:08:24.314794049Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "05c8b845bbd3fe7b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:11:40.197Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 90% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:12:10.201Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 69.23% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "2025-04-01T08:12:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:13:10.210Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:13:40.230Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 69.23% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "2025-04-01T08:12:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:14:40.235Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:15:10.237Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 69.23% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "2025-04-01T08:12:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:15:30.253Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "22024553 Nguyen Trung Nguyen",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:11:03.201257512Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "a52b7256990a00f3"
+    },
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "test-alert",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:08:24.314794049Z",
+      "endsAt": "2025-04-01T08:15:23.479857174Z",
+      "generatorURL": "",
+      "fingerprint": "05c8b845bbd3fe7b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:16:10.250Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:16:10.256Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "22024553 Nguyen Trung Nguyen",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:11:03.201257512Z",
+      "endsAt": "2025-04-01T08:16:03.201257512Z",
+      "generatorURL": "",
+      "fingerprint": "a52b7256990a00f3"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:16:40.261Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 69.23% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "2025-04-01T08:12:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:17:40.276Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:18:10.285Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 69.23% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "2025-04-01T08:12:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:19:10.290Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:19:40.557Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 69.23% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "2025-04-01T08:12:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:20:40.334Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:21:10.339Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 69.23% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "2025-04-01T08:12:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:22:10.353Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:22:40.358Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 69.23% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "2025-04-01T08:12:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:23:30.379Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "test-alert",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:23:25.194333841Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "05c8b845bbd3fe7b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:23:40.374Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:24:10.372Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 69.23% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "2025-04-01T08:12:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:25:10.427Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "clientError",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 13.04% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T07:22:34.689Z",
+      "endsAt": "2025-04-01T08:10:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "283c9acced417064"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:25:40.418Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "AlertmanagerFailedToSendAlerts",
+        "container": "alertmanager",
+        "endpoint": "http-web",
+        "instance": "10.1.0.44:9093",
+        "integration": "webhook",
+        "job": "kube-prometheus-stack-alertmanager",
+        "namespace": "kube-prometheus-stack",
+        "pod": "alertmanager-kube-prometheus-stack-alertmanager-0",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "reason": "other",
+        "service": "kube-prometheus-stack-alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Alertmanager kube-prometheus-stack/alertmanager-kube-prometheus-stack-alertmanager-0 failed to send 69.23% of notifications to webhook.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/alertmanager/alertmanagerfailedtosendalerts",
+        "summary": "An Alertmanager instance failed to send notifications."
+      },
+      "startsAt": "2025-04-01T08:11:04.689Z",
+      "endsAt": "2025-04-01T08:12:04.689Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=%28rate%28alertmanager_notifications_failed_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29+%2F+ignoring+%28reason%29+group_left+%28%29+rate%28alertmanager_notifications_total%7Bjob%3D%22kube-prometheus-stack-alertmanager%22%2Cnamespace%3D%22kube-prometheus-stack%22%7D%5B5m%5D%29%29+%3E+0.01&g0.tab=1",
+      "fingerprint": "079407c66182887b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "namespace": "kube-prometheus-stack",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:27:30.443Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:27:23.937471466Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "d522571550a9328f"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "test-alert",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:23:25.194333841Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "05c8b845bbd3fe7b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:28:30.452Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:27:23.937471466Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "d522571550a9328f"
+    },
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "test-alert",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:23:25.194333841Z",
+      "endsAt": "2025-04-01T08:28:25.194333841Z",
+      "generatorURL": "",
+      "fingerprint": "05c8b845bbd3fe7b"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:32:20.544Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:27:23.937471466Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "d522571550a9328f"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:32:15.90624292Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "2c95f490b8b60ee3"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:32:30.513Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:27:23.937471466Z",
+      "endsAt": "2025-04-01T08:32:23.937471466Z",
+      "generatorURL": "",
+      "fingerprint": "d522571550a9328f"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:32:15.90624292Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "2c95f490b8b60ee3"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:37:20.589Z] {
+  "receiver": "custom-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:32:15.90624292Z",
+      "endsAt": "2025-04-01T08:37:15.90624292Z",
+      "generatorURL": "",
+      "fingerprint": "2c95f490b8b60ee3"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:44:18.658Z] {
+  "receiver": "both-receivers",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "alertname": "KubeControllerManagerDown",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "critical"
+  },
+  "commonAnnotations": {
+    "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+    "summary": "Target disappeared from Prometheus target discovery."
+  },
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}/{severity=\"critical\"}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:44:19.138Z] {
+  "receiver": "both-receivers",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-controller-manager",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-controller-manager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-controller-manager/kube-prometheus-stack-kube-controller-manager targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:14.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "a8c30b4a824df37a"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "etcdMembersDown",
+        "job": "kube-etcd",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-etcd",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "etcd cluster \"kube-etcd\": members are down (1).",
+        "summary": "etcd cluster members are down."
+      },
+      "startsAt": "2025-04-01T07:19:07.793Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=max+without+%28endpoint%29+%28sum+without+%28instance%2C+pod%29+%28up%7Bjob%3D~%22.%2Aetcd.%2A%22%7D+%3D%3D+bool+0%29+or+count+without+%28To%29+%28sum+without+%28instance%2C+pod%29+%28rate%28etcd_network_peer_sent_failures_total%7Bjob%3D~%22.%2Aetcd.%2A%22%7D%5B2m%5D%29%29+%3E+0.01%29%29+%3E+0&g0.tab=1",
+      "fingerprint": "20fc596ff730fe20"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-scheduler",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-scheduler",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-scheduler/kube-prometheus-stack-kube-scheduler targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:44.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "1f70a17e847b9462"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-system"
+  },
+  "commonLabels": {
+    "namespace": "kube-system",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-system\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:44:19.140Z] {
+  "receiver": "both-receivers",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-controller-manager",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-controller-manager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-controller-manager/kube-prometheus-stack-kube-controller-manager targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:14.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "a8c30b4a824df37a"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-etcd",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-etcd",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-etcd/kube-prometheus-stack-kube-etcd targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:14.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "3bcc820783e8b30a"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "etcdMembersDown",
+        "job": "kube-etcd",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-etcd",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "etcd cluster \"kube-etcd\": members are down (1).",
+        "summary": "etcd cluster members are down."
+      },
+      "startsAt": "2025-04-01T07:19:07.793Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=max+without+%28endpoint%29+%28sum+without+%28instance%2C+pod%29+%28up%7Bjob%3D~%22.%2Aetcd.%2A%22%7D+%3D%3D+bool+0%29+or+count+without+%28To%29+%28sum+without+%28instance%2C+pod%29+%28rate%28etcd_network_peer_sent_failures_total%7Bjob%3D~%22.%2Aetcd.%2A%22%7D%5B2m%5D%29%29+%3E+0.01%29%29+%3E+0&g0.tab=1",
+      "fingerprint": "20fc596ff730fe20"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-proxy",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-proxy",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-proxy/kube-prometheus-stack-kube-proxy targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:44.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "2fc449b7effab858"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-scheduler",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-scheduler",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-scheduler/kube-prometheus-stack-kube-scheduler targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:44.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "1f70a17e847b9462"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-system"
+  },
+  "commonLabels": {
+    "namespace": "kube-system",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-system\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:44:19.171Z] {
+  "receiver": "both-receivers",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:27:23.937471466Z",
+      "endsAt": "2025-04-01T08:32:23.937471466Z",
+      "generatorURL": "",
+      "fingerprint": "d522571550a9328f"
+    },
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:32:15.90624292Z",
+      "endsAt": "2025-04-01T08:37:15.90624292Z",
+      "generatorURL": "",
+      "fingerprint": "2c95f490b8b60ee3"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}/{severity=\"critical\"}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:44:19.174Z] {
+  "receiver": "both-receivers",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "alertname": "NodeClockNotSynchronising",
+    "container": "node-exporter",
+    "endpoint": "http-metrics",
+    "instance": "192.168.65.3:9100",
+    "job": "node-exporter",
+    "namespace": "kube-prometheus-stack",
+    "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "service": "kube-prometheus-stack-prometheus-node-exporter",
+    "severity": "warning"
+  },
+  "commonAnnotations": {
+    "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+    "summary": "Clock not synchronising."
+  },
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:44:19.175Z] {
+  "receiver": "both-receivers",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "Watchdog",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "none"
+      },
+      "annotations": {
+        "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+        "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+      },
+      "startsAt": "2025-04-01T06:59:14.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=vector%281%29&g0.tab=1",
+      "fingerprint": "972f3dc166677cf2"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "alertname": "Watchdog",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "none"
+  },
+  "commonAnnotations": {
+    "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+    "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+  },
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:44:19.176Z] {
+  "receiver": "both-receivers",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "etcdInsufficientMembers",
+        "endpoint": "http-metrics",
+        "job": "kube-etcd",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-etcd",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "etcd cluster \"kube-etcd\": insufficient members (0).",
+        "summary": "etcd cluster has insufficient number of members."
+      },
+      "startsAt": "2025-04-01T07:02:07.793Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=sum+without+%28instance%2C+pod%29+%28up%7Bjob%3D~%22.%2Aetcd.%2A%22%7D+%3D%3D+bool+1%29+%3C+%28%28count+without+%28instance%2C+pod%29+%28up%7Bjob%3D~%22.%2Aetcd.%2A%22%7D%29+%2B+1%29+%2F+2%29&g0.tab=1",
+      "fingerprint": "6204338b907b8585"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-system"
+  },
+  "commonLabels": {
+    "alertname": "etcdInsufficientMembers",
+    "endpoint": "http-metrics",
+    "job": "kube-etcd",
+    "namespace": "kube-system",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "service": "kube-prometheus-stack-kube-etcd",
+    "severity": "critical"
+  },
+  "commonAnnotations": {
+    "description": "etcd cluster \"kube-etcd\": insufficient members (0).",
+    "summary": "etcd cluster has insufficient number of members."
+  },
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}/{severity=\"critical\"}:{namespace=\"kube-system\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:44:49.182Z] {
+  "receiver": "both-receivers",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST Mail and webhook",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:44:47.08577092Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "526241ee29b2f8e6"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}/{severity=\"critical\"}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:49:49.255Z] {
+  "receiver": "both-receivers",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST Mail and webhook",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:44:47.08577092Z",
+      "endsAt": "2025-04-01T08:49:47.08577092Z",
+      "generatorURL": "",
+      "fingerprint": "526241ee29b2f8e6"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}/{severity=\"critical\"}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:53:59.297Z] {
+  "receiver": "both-receivers",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST Mail + WEB HOOK",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:53:37.416192138Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "f8900c657ece0cfa"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}/{severity=\"critical\"}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:54:19.166Z] {
+  "receiver": "webhook-receiver",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "etcdInsufficientMembers",
+        "endpoint": "http-metrics",
+        "job": "kube-etcd",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-etcd",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "etcd cluster \"kube-etcd\": insufficient members (0).",
+        "summary": "etcd cluster has insufficient number of members."
+      },
+      "startsAt": "2025-04-01T07:02:07.793Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=sum+without+%28instance%2C+pod%29+%28up%7Bjob%3D~%22.%2Aetcd.%2A%22%7D+%3D%3D+bool+1%29+%3C+%28%28count+without+%28instance%2C+pod%29+%28up%7Bjob%3D~%22.%2Aetcd.%2A%22%7D%29+%2B+1%29+%2F+2%29&g0.tab=1",
+      "fingerprint": "6204338b907b8585"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-system"
+  },
+  "commonLabels": {
+    "alertname": "etcdInsufficientMembers",
+    "endpoint": "http-metrics",
+    "job": "kube-etcd",
+    "namespace": "kube-system",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "service": "kube-prometheus-stack-kube-etcd",
+    "severity": "critical"
+  },
+  "commonAnnotations": {
+    "description": "etcd cluster \"kube-etcd\": insufficient members (0).",
+    "summary": "etcd cluster has insufficient number of members."
+  },
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}/{severity=\"critical\"}:{namespace=\"kube-system\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:54:19.168Z] {
+  "receiver": "webhook-receiver",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:27:23.937471466Z",
+      "endsAt": "2025-04-01T08:32:23.937471466Z",
+      "generatorURL": "",
+      "fingerprint": "d522571550a9328f"
+    },
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:32:15.90624292Z",
+      "endsAt": "2025-04-01T08:37:15.90624292Z",
+      "generatorURL": "",
+      "fingerprint": "2c95f490b8b60ee3"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST Mail + WEB HOOK",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:53:37.416192138Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "f8900c657ece0cfa"
+    },
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST Mail and webhook",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:44:47.08577092Z",
+      "endsAt": "2025-04-01T08:49:47.08577092Z",
+      "generatorURL": "",
+      "fingerprint": "526241ee29b2f8e6"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}/{severity=\"critical\"}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:54:19.170Z] {
+  "receiver": "webhook-receiver",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "Watchdog",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "none"
+      },
+      "annotations": {
+        "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+        "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+      },
+      "startsAt": "2025-04-01T06:59:14.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=vector%281%29&g0.tab=1",
+      "fingerprint": "972f3dc166677cf2"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "alertname": "Watchdog",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "none"
+  },
+  "commonAnnotations": {
+    "description": "This is an alert meant to ensure that the entire alerting pipeline is functional.\nThis alert is always firing, therefore it should always be firing in Alertmanager\nand always fire against a receiver. There are integrations with various notification\nmechanisms that send a notification when this alert is not firing. For example the\n\"DeadMansSnitch\" integration in PagerDuty.\n",
+    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/watchdog",
+    "summary": "An alert that should always be firing to certify that Alertmanager is working properly."
+  },
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:54:19.171Z] {
+  "receiver": "webhook-receiver",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "NodeClockNotSynchronising",
+        "container": "node-exporter",
+        "endpoint": "http-metrics",
+        "instance": "192.168.65.3:9100",
+        "job": "node-exporter",
+        "namespace": "kube-prometheus-stack",
+        "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-prometheus-node-exporter",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+        "summary": "Clock not synchronising."
+      },
+      "startsAt": "2025-04-01T07:15:32.336Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=min_over_time%28node_timex_sync_status%7Bjob%3D%22node-exporter%22%7D%5B5m%5D%29+%3D%3D+0+and+node_timex_maxerror_seconds%7Bjob%3D%22node-exporter%22%7D+%3E%3D+16&g0.tab=1",
+      "fingerprint": "0e2013b577a95770"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-prometheus-stack"
+  },
+  "commonLabels": {
+    "alertname": "NodeClockNotSynchronising",
+    "container": "node-exporter",
+    "endpoint": "http-metrics",
+    "instance": "192.168.65.3:9100",
+    "job": "node-exporter",
+    "namespace": "kube-prometheus-stack",
+    "pod": "kube-prometheus-stack-prometheus-node-exporter-zsh8k",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "service": "kube-prometheus-stack-prometheus-node-exporter",
+    "severity": "warning"
+  },
+  "commonAnnotations": {
+    "description": "Clock at 192.168.65.3:9100 is not synchronising. Ensure NTP is configured on this host.",
+    "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/node/nodeclocknotsynchronising",
+    "summary": "Clock not synchronising."
+  },
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-prometheus-stack\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:54:19.172Z] {
+  "receiver": "webhook-receiver",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-controller-manager",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-controller-manager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-controller-manager/kube-prometheus-stack-kube-controller-manager targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:14.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "a8c30b4a824df37a"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-etcd",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-etcd",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-etcd/kube-prometheus-stack-kube-etcd targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:14.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "3bcc820783e8b30a"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "etcdMembersDown",
+        "job": "kube-etcd",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-etcd",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "etcd cluster \"kube-etcd\": members are down (1).",
+        "summary": "etcd cluster members are down."
+      },
+      "startsAt": "2025-04-01T07:19:07.793Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=max+without+%28endpoint%29+%28sum+without+%28instance%2C+pod%29+%28up%7Bjob%3D~%22.%2Aetcd.%2A%22%7D+%3D%3D+bool+0%29+or+count+without+%28To%29+%28sum+without+%28instance%2C+pod%29+%28rate%28etcd_network_peer_sent_failures_total%7Bjob%3D~%22.%2Aetcd.%2A%22%7D%5B2m%5D%29%29+%3E+0.01%29%29+%3E+0&g0.tab=1",
+      "fingerprint": "20fc596ff730fe20"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-proxy",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-proxy",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-proxy/kube-prometheus-stack-kube-proxy targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:44.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "2fc449b7effab858"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TargetDown",
+        "job": "kube-scheduler",
+        "namespace": "kube-system",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "service": "kube-prometheus-stack-kube-scheduler",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "100% of the kube-scheduler/kube-prometheus-stack-kube-scheduler targets in kube-system namespace are down.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/general/targetdown",
+        "summary": "One or more targets are unreachable."
+      },
+      "startsAt": "2025-04-01T07:09:44.79Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=100+%2A+%28count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up+%3D%3D+0%29+%2F+count+by+%28cluster%2C+job%2C+namespace%2C+service%29+%28up%29%29+%3E+10&g0.tab=1",
+      "fingerprint": "1f70a17e847b9462"
+    }
+  ],
+  "groupLabels": {
+    "namespace": "kube-system"
+  },
+  "commonLabels": {
+    "namespace": "kube-system",
+    "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+    "severity": "warning"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}:{namespace=\"kube-system\"}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:57:47.237Z] {
+  "receiver": "webhook-receiver",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST MaiL VA WEB HOOK",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:57:38.055928389Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "edf24582794b6ae0"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST Mail + WEB HOOK",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:53:37.416192138Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "f8900c657ece0cfa"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}/{severity=\"critical\"}:{}",
+  "truncatedAlerts": 0
+}
+
+[2025-04-01T08:59:07.229Z] {
+  "receiver": "webhook-receiver",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST MaiL VA WEB HOOK",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:57:38.055928389Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "",
+      "fingerprint": "edf24582794b6ae0"
+    },
+    {
+      "status": "resolved",
+      "labels": {
+        "alertname": "TRUNG NGUYEN 22024553 TEST Mail + WEB HOOK",
+        "severity": "critical"
+      },
+      "annotations": {},
+      "startsAt": "2025-04-01T08:53:37.416192138Z",
+      "endsAt": "2025-04-01T08:59:02.515799178Z",
+      "generatorURL": "",
+      "fingerprint": "f8900c657ece0cfa"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeControllerManagerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeControllerManager has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubecontrollermanagerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:13.826Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-controller-manager%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "047c0ac09b2d28d8"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeProxyDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeProxy has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeproxydown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:14:21.171Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-proxy%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "ace9caf9cbbccf21"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "KubeSchedulerDown",
+        "prometheus": "kube-prometheus-stack/kube-prometheus-stack-prometheus",
+        "severity": "critical"
+      },
+      "annotations": {
+        "description": "KubeScheduler has disappeared from Prometheus target discovery.",
+        "runbook_url": "https://runbooks.prometheus-operator.dev/runbooks/kubernetes/kubeschedulerdown",
+        "summary": "Target disappeared from Prometheus target discovery."
+      },
+      "startsAt": "2025-04-01T07:13:56.95Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://kube-prometheus-stack-prometheus.kube-prometheus-stack:9090/graph?g0.expr=absent%28up%7Bjob%3D%22kube-scheduler%22%7D+%3D%3D+1%29&g0.tab=1",
+      "fingerprint": "c56e29efa93aa0c6"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "severity": "critical"
+  },
+  "commonAnnotations": {},
+  "externalURL": "http://kube-prometheus-stack-alertmanager.kube-prometheus-stack:9093",
+  "version": "4",
+  "groupKey": "{}/{severity=\"critical\"}:{}",
+  "truncatedAlerts": 0
+}
+

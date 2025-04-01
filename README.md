@@ -45,3 +45,13 @@ $ curl -H 'Content-Type: application/json' -d '[{"labels":{"alertname":"alert-de
 #### Final Result
 
 ![alt text](image-10.png)
+
+MORE
+
+![alt text](image-12.png)
+Webhook API
+
+![alt text](image-11.png)
+Gmail Alert
+
+![alt text](image-13.png)
